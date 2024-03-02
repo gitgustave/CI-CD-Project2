@@ -23,15 +23,17 @@ pipeline {
 
         stage("Build Application "){
             steps{
-                dir('project2')
+                dir('project2') { 
                 sh "mvn clean"
+                }
             }
         }
 
         stage("Test Application"){
             steps{
-                dir('project2')
+                dir('project2'){ 
                 sh "mvn test"
+                }
             }
         }
 
