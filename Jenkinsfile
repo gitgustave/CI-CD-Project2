@@ -37,15 +37,14 @@ pipeline {
             }
         }
 
-        stage ('SonarQube Analysis') {
-            steps {
-              withSonarQubeEnv('SonarQube-Server') {
-                dir('project2'){
-                sh 'mvn -U clean install sonar:sonar'
-                }
-              }  
+        //stage ('SonarQube Analysis') {
+         //   steps {
+          //    withSonarQubeEnv('SonarQube-Server') {
+          //      dir('project2'){
+           //     sh 'mvn -U clean install sonar:sonar'
+            //    }
+            //  }  
 
     }
 }
-}
-}
+
