@@ -23,14 +23,25 @@ pipeline {
 
         stage("Build Application "){
             steps{
+                dir('project2')
                 sh "mvn clean"
             }
         }
 
         stage("Test Application"){
             steps{
+                dir('project2')
                 sh "mvn test"
             }
         }
+
+        stage ('SonarQube Analysis') {
+            steps {
+              withSonarQubeEnv('SonarQube-Server') {
+                dir('project2'){
+                sh 'mvn -U clean install sonar:sonar'
+                }
+              }  
+
     }
 }
